@@ -30,6 +30,10 @@ describe('cycleHeading: prose shapes', () => {
 		expect(block('# Hello\n').cycle(1, 4)).toEqual({ newRaw: '# Hello\n', caretOffset: 4 });
 	});
 
+	it('preserves a closing ATX run when changing heading levels', () => {
+		expect(block('## a ##').cycle(3, 4)).toEqual({ newRaw: '### a ##', caretOffset: 5 });
+	});
+
 	it('strips at level 0, and declines a paragraph that has nothing to strip', () => {
 		expect(block('## Hello\n').cycle(0, 5)).toEqual({ newRaw: 'Hello\n', caretOffset: 2 });
 		expect(block('Hello\n').cycle(0, 3)).toBeNull();
