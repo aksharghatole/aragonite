@@ -1,6 +1,6 @@
 // `cycleHeading` re-marks a block by its kind's content range, and declines the raw-editable kinds
 // that bind the same keymap.
-// Miss-analysis: every fixture's marker was one a `^#` regex reaches, never indented or setext.
+// Miss-analysis: no prior fixture had a closing ATX run, so dropping that suffix went unnoticed.
 import { describe, it, expect } from 'vitest';
 import { parse } from '#lib/core/parser.js';
 import { getContentRange, isProseKind } from '#lib/core/inline/index.js';
